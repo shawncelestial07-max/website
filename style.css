@@ -100,7 +100,7 @@ header {
 
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 85px;
+    font-size: 120px;
     line-height: 1.05;
   }
 }
