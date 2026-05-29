@@ -471,32 +471,42 @@ body::before{
 @media (max-width: 768px) {
 
   .hero {
-    padding: 100px 20px;
-    text-align: center;
+    min-height: 90vh;
+    padding: 90px 18px 60px;
+    display: flex;
+    align-items: center;
   }
 
   .hero-content {
+    text-align: left;
     max-width: 100%;
   }
 
+  .small-text {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    color: #8b5cf6;
+  }
+
   .hero h1 {
-    font-size: 36px;
-    line-height: 1.2;
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 14px;
   }
 
   .hero-description {
     font-size: 14px;
-    margin: 0 auto 20px;
-  }
-
-  .small-text {
-    font-size: 12px;
-    letter-spacing: 1.5px;
+    color: #aaa;
+    margin-bottom: 22px;
+    max-width: 100%;
   }
 
   .btn {
     width: 100%;
-    max-width: 280px;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
   }
 }
 
