@@ -510,3 +510,17 @@ body::before{
   }
 }
 
+@media (max-width: 768px) {
+
+  .hero h1 span {
+    display: inline-block;
+    color: #8b5cf6;
+  }
+
+  .typing {
+    display: inline;
+    border-right: 2px solid #8b5cf6;
+    padding-right: 5px;
+  }
+}
+
