@@ -524,3 +524,9 @@ body::before{
   }
 }
 
+@media (max-width: 768px) {
+  .typing {
+    font-weight: 600;
+  }
+}
+
