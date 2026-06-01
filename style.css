@@ -940,3 +940,12 @@ body.transitioning .hero{
 
 }
 
+@media (max-width:768px){
+
+  .services-showcase{
+    height: 600px !important;
+    background:red;
+  }
+
+}
+
