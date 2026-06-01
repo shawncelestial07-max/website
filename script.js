@@ -81,14 +81,39 @@ function erase(){
 
 type();
 
-const elements = document.querySelectorAll(".project-card, .section-title");
+const overlay = document.querySelector(".page-transition");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+  link.addEventListener("click",e=>{
+
+    e.preventDefault();
+
+    const target = document.querySelector(
+      link.getAttribute("href")
+    );
+
+    document.body.classList.add("transitioning");
+    overlay.classList.add("active");
+
+    setTimeout(()=>{
+
+      target.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+    },250);
+
+    setTimeout(()=>{
+
+      overlay.classList.remove("active");
+      document.body.classList.remove("transitioning");
+
+    },1000);
+
   });
+
 });
 
 elements.forEach(el => observer.observe(el));
@@ -114,4 +139,27 @@ document.querySelectorAll(".project-card").forEach(card => {
     card.style.transform = "rotateX(0deg) rotateY(0deg)";
   });
 
+});
+
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  let current = "";
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 150;
+
+    if(window.scrollY >= top){
+      current = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    if(link.getAttribute("href") === `#${current}`){
+      link.classList.add("active");
+    }
+  });
 });
