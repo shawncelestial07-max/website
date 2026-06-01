@@ -734,6 +734,105 @@ body {
   line-height: 1.6;
 }
 
+/* VIDEO SHOWCASE */
+
+.services-showcase{
+max-width: 1100px;
+margin: 0 auto 60px;
+
+position: relative;
+overflow: hidden;
+
+border-radius: 24px;
+
+border: 1px solid rgba(255,255,255,0.08);
+
+background: rgba(255,255,255,0.03);
+backdrop-filter: blur(12px);
+
+box-shadow:
+0 0 40px rgba(139,92,246,0.15),
+0 20px 60px rgba(0,0,0,0.4);
+
+transition: 0.4s ease;
+}
+
+.services-showcase:hover{
+transform: translateY(-5px);
+box-shadow:
+0 0 60px rgba(139,92,246,0.25),
+0 25px 80px rgba(0,0,0,0.5);
+}
+
+.services-showcase video{
+width: 100%;
+display: block;
+
+animation: slowZoom 12s linear infinite alternate;
+}
+
+.services-showcase::before{
+content:"";
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(139,92,246,.15),
+rgba(59,130,246,.08)
+);
+
+pointer-events:none;
+}
+
+.video-tag{
+position:absolute;
+top:20px;
+left:20px;
+
+z-index:2;
+
+padding:8px 14px;
+
+border-radius:999px;
+
+background:rgba(0,0,0,.55);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#8b5cf6;
+
+font-size:12px;
+letter-spacing:2px;
+}
+
+@keyframes slowZoom{
+from{
+transform: scale(1);
+}
+
+to{
+transform: scale(1.05);
+}
+}
+
+@media (max-width:768px){
+
+.services-showcase{
+margin-bottom:40px;
+border-radius:18px;
+}
+
+.video-tag{
+top:12px;
+left:12px;
+font-size:10px;
+}
+
+}
+
+
 @media (max-width: 768px) {
 
   .services-container {
@@ -784,3 +883,46 @@ body {
     line-height: 1.05 !important;
   }
 }
+
+:root{
+  --card: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.08);
+  --accent: #8b5cf6;
+}
+
+.page-transition{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99999;
+
+  background:
+  radial-gradient(
+    circle at center,
+    rgba(139,92,246,.35),
+    transparent 60%
+  );
+
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  transition:
+  opacity .5s ease,
+  backdrop-filter .5s ease;
+}
+
+.page-transition.active{
+  opacity: 1;
+  backdrop-filter: blur(10px);
+}
+
+body.transitioning{
+  overflow: hidden;
+}
+
+body.transitioning main,
+body.transitioning section,
+body.transitioning .hero{
+  transform: scale(1.03);
+  transition: transform .6s ease;
+}
+
